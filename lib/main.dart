@@ -52,11 +52,25 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
+            SizedBox(height: 20),
             Container(
               width: double.infinity,
-              margin: EdgeInsets.symmetric(
-                horizontal: 20,
+              height: 200,
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                image: DecorationImage(
+                  image: NetworkImage(
+                    'https://image.freepik.com/free-vector/hand-drawn-web-developers_23-2148819604.jpg',
+                  ),
+                  fit: BoxFit.cover,
+                ),
               ),
+            ),
+            SizedBox(height: 20),
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.symmetric(horizontal: 20),
               child: FlatButton(
                 color: Colors.redAccent,
                 disabledColor: Colors.redAccent,
@@ -111,31 +125,15 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  dynamic _increment() {
-    if(_counter == 20){
-      return showToast(
-        msg: 'You reached to limit',
-        gravity: 0,
-        duration: 3,
-        background: Colors.pinkAccent,
-      );
-    }
+  void _increment() {
     _counter = _counter + 1;
     setState(() {});
   }
 
-  dynamic _decrement() {
-    if (_counter == 0) {
-      return showToast(
-        msg: 'You can\'t decrease below than zero',
-        gravity: 0,
-        duration: 3,
-        background: Colors.blueGrey,
-      );
-    } else {
+  void _decrement() {
       _counter = _counter - 1;
       setState(() {});
-    }
+
   }
 
   void showToast({
